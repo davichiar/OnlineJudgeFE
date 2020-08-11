@@ -265,14 +265,14 @@ export const m = {
   Signal: '신호',
 
   // SubmissionList.vue
-  When: 'When',
+  When: '날짜',
   ID: '아이디',
   Time: '시간',
   Memory: '메모리',
   Author: '작성자',
   Option: '옵션',
   Mine: '내 것',
-  Search_Author: 'Search Author',
+  Search_Author: '작성자 검색',
   Accepted: '수락',
   Time_Limit_Exceeded: '제한 시간 초과됨',
   Memory_Limit_Exceeded: '메모리 제한 초과',
