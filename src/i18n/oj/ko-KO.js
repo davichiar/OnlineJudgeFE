@@ -1,6 +1,7 @@
 export const m = {
   // 404.vue
   Go_Home: 'Go Home',
+
   // Problem.vue
   Description: 'Description',
   Input: 'Input',
@@ -33,6 +34,7 @@ export const m = {
   You_have_submitted_a_solution: 'You have submitted a solution.',
   Contest_has_ended: 'Contest has ended',
   You_have_submission_in_this_problem_sure_to_cover_it: 'You have submission in this problem, sure to cover it?',
+
   // About.vue
   Compiler: 'Compiler',
   Result_Explanation: 'Result Explanation',
@@ -44,6 +46,7 @@ export const m = {
   Time_Limit_Exceeded_Description: 'The CPU time your program used has exceeded limit.',
   Memory_Limit_Exceeded_Description: 'The memory your program actually used has exceeded limit.',
   System_Error_Description: 'Oops, something has gone wrong with the judger. Please report this to administrator.',
+
   // ACMContestRank.vue
   Menu: 'Menu',
   Chart: 'Chart',
@@ -54,6 +57,7 @@ export const m = {
   TotalTime: 'TotalTime',
   Top_10_Teams: 'Top 10 Teams',
   save_as_image: 'save as image',
+
   // ACMHelper.vue
   ACM_Helper: 'ACM Helper',
   AC_Time: 'AC Time',
@@ -63,18 +67,22 @@ export const m = {
   Checked: 'Checked',
   Not_Checked: 'Not Checked',
   Check_It: 'Check It',
+
   // ACMRank.vue
   ACM_Ranklist: 'ACM Ranklist',
   mood: 'mood',
   AC: 'AC',
   Rating: 'Rating',
+
   // Announcements.vue
   Contest_Announcements: 'Contest Announcements',
   By: 'By',
+
   // ApplyResetPassword.vue
   The_email_doesnt_exist: 'The email doesn\'t exist',
   Success: 'Success',
   Password_reset_mail_sent: 'Password reset mail has been sent to your email，',
+
   // FAQ.vue
   Frequently_Asked_Questions: 'Frequently Asked Questions',
   Where_is_the_input_and_the_output: 'Where is the input and the output?',
@@ -106,8 +114,10 @@ export const m = {
   How_to_report_bugs: 'How to report bugs about this oj?',
   How_to_report_bugs_answer_part_1: 'The onlinejudge is open source, you can open an issue in',
   How_to_report_bugs_answer_part_2: 'The details(like env, version..) about a bug is required, which will help us a lot to solve the bug. Certainly, we are very pleased to merge your pull requests.',
+
   // Cancel.vue
   Cancel: 'Cancel',
+
   // ContestDetail.vue
   Problems: 'Problems',
   Announcements: 'Announcements',
@@ -121,6 +131,7 @@ export const m = {
   Creator: 'Creator',
   Public: 'Public',
   Password_Protected: 'Password Protected',
+
   // ContestList.vue
   Rule: 'Rule',
   OI: 'OI',
@@ -130,9 +141,11 @@ export const m = {
   Ended: 'Ended',
   No_contest: 'No contest',
   Please_login_first: 'Please login first!',
+
   // ContestProblemList
   Problems_List: 'Problems List',
   No_Problems: 'No Problems',
+
   // CodeMirror.vue
   Language: 'Language',
   Theme: 'Theme',
@@ -141,45 +154,53 @@ export const m = {
   Monokai: 'Monokai',
   Solarized_Light: 'Solarized Light',
   Material: 'Material',
+
   // KatexEditor.vue
   Latex_Editor: 'Latex Editor',
+
   // NavBar.vue
-  Home: 'Home',
-  NavProblems: 'Problems',
-  Contests: 'Contests',
-  NavStatus: 'Status',
-  Rank: 'Rank',
-  ACM_Rank: 'ACM Rank',
-  OI_Rank: 'OI Rank',
-  About: 'About',
-  Judger: 'Judger',
+  Home: '홈',
+  NavProblems: '문제',
+  Contests: '대회',
+  NavStatus: '상태',
+  Rank: '랭킹',
+  ACM_Rank: 'ACM 랭킹',
+  OI_Rank: 'OI 랭킹',
+  About: '도움말',
+  Judger: '채점 시스템',
   FAQ: 'FAQ',
-  Login: 'Login',
-  Register: 'Register',
-  MyHome: 'Home',
-  MySubmissions: 'Submissions',
-  Settings: 'Settings',
-  Management: 'Management',
-  Logout: 'Logout',
-  Welcome_to: 'Welcome to',
+  Login: '로그인',
+  Register: '회원가입',
+  MyHome: '홈',
+  MySubmissions: '제출',
+  Settings: '설정',
+  Management: '관리',
+  Logout: '로그아웃',
+  Welcome_to: '환영합니다',
+
   // announcements.vue
   Refresh: 'Refresh',
   Back: 'Back',
   No_Announcements: 'No Announcements',
+
   // Setting.vue
   Profile: 'Profile',
   Account: 'Account',
   Security: 'Security',
+
   // AccoutSetting.vue
   ChangePassword: 'Change Password',
   ChangeEmail: 'Change Email',
   Update_Password: 'Update Password',
+
   // ProfileSetting.vue
   Avatar_Setting: 'Avatar Setting',
   Profile_Setting: 'Profile Setting',
+
   // SecuritySettig
   Sessions: 'Sessions',
   Two_Factor_Authentication: 'Two Factor Authentication',
+
   // Login.vue
   LoginUsername: 'Username',
   LoginPassword: 'Password',
@@ -188,10 +209,13 @@ export const m = {
   Forget_Password: 'Forget Password',
   UserLogin: 'Login',
   Welcome_back: 'Welcome back to OJ',
+
   // OIRank.vue
   OI_Ranklist: 'OI Ranklist',
+
   // OIContestRank.vue
   Total_Score: 'Total Score',
+
   // ProblemList.vue
   Problem_List: 'Problem List',
   High: 'High',
@@ -203,6 +227,7 @@ export const m = {
   Difficulty: 'Difficulty',
   Total: 'Total',
   AC_Rate: 'AC Rate',
+
   // Register.vue
   RegisterUsername: 'Username',
   Email_Address: 'Email Address',
@@ -215,6 +240,7 @@ export const m = {
   The_email_already_exists: 'The email already exists',
   password_does_not_match: 'password does not match',
   Thanks_for_registering: 'Thanks for your registering, you can login now',
+
   // ResetPassword.vue and ApplyResetPassword.vue
   Reset_Password: 'Lost Password',
   RPassword: 'Password',
@@ -223,10 +249,13 @@ export const m = {
   ApplyEmail: 'Your Email Address',
   Send_Password_Reset_Email: 'Send Password Reset Email',
   Your_password_has_been_reset: 'Your password has been reset.',
+
   // Save.vue
   Save: 'Save',
+
   // Simditor.vue
   Uploading_is_in_progress: 'Uploading is in progress, are you sure to leave this page?',
+
   // SubmissionDetails.vue
   Lang: 'Lang',
   Share: 'Share',
@@ -234,6 +263,7 @@ export const m = {
   Succeeded: 'Succeeded',
   Real_Time: 'Real Time',
   Signal: 'Signal',
+
   // SubmissionList.vue
   When: 'When',
   ID: 'ID',
@@ -252,6 +282,7 @@ export const m = {
   Partial_Accepted: 'Partial Accepted',
   Compile_Error: 'Compile Error',
   Rejudge: 'Rejudge',
+
   // UserHome.vue
   UserHomeSolved: 'Solved',
   UserHomeserSubmissions: 'Submissions',
