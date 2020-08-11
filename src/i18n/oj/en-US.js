@@ -1,24 +1,23 @@
 export const m = {
   // 404.vue
   Go_Home: 'Go Home',
-
   // Problem.vue
-  Description: '설명',
-  Input: '입력',
-  Output: '출력',
-  Sample_Input: '예시 입력',
-  Sample_Output: '예시 출력',
-  Hint: '힌트',
-  Source: '소스코드',
-  Status: '상태',
-  Information: '정보',
-  Time_Limit: '시간 제한',
-  Memory_Limit: '메모리 제한',
-  Created: 'Created',
-  Level: '레벨',
-  Score: '점수',
-  Tags: '태그',
-  Show: '보기',
+  Description: 'Description',
+  Input: 'Input',
+  Output: 'Output',
+  Sample_Input: 'Sample Input',
+  Sample_Output: 'Sample Output',
+  Hint: 'Hint',
+  Source: 'Source',
+  Status: 'Status',
+  Information: 'Information',
+  Time_Limit: 'Time Limit',
+  Memory_Limit: 'Memory Limit',
+  Created: 'Created By',
+  Level: 'Level',
+  Score: 'Score',
+  Tags: 'Tags',
+  Show: 'Show',
   Submit: 'Submit',
   Submitting: 'Submitting',
   Judging: 'Judging',
@@ -34,19 +33,17 @@ export const m = {
   You_have_submitted_a_solution: 'You have submitted a solution.',
   Contest_has_ended: 'Contest has ended',
   You_have_submission_in_this_problem_sure_to_cover_it: 'You have submission in this problem, sure to cover it?',
-
   // About.vue
   Compiler: 'Compiler',
-  Result_Explanation: '결과 설명',
-  Pending_Juding: '곧 채점 될 예정입니다. 잠시만 기다려주세요.',
-  Compile_Error: '소스코드 컴파일에 실패했습니다. 컴파일 오류 내용을 확인하세요.',
-  Accepted: '정답입니다.',
-  Wrong_Answer: '오답입니다.',
-  Runtime_Error: '프로그램이 비정상적으로 종료되었습니다. 세그먼테이션 폴트나 0으로 나누기 오류 등이 있는지 확인하세요.',
-  Time_Limit_Exceeded: '시간 초과입니다. (Java의 경우 3배의 시간이 부여됩니다.)',
-  Memory_Limit_Exceeded: '메모리 초과입니다.',
-  System_Error: '채점 시스템에 오류가 발생했습니다. 관리자에게 문의하세요.',
-
+  Result_Explanation: 'Result Explanation',
+  Pending_Judging_Description: 'You solution will be judged soon, please wait for result.',
+  Compile_Error_Description: "Failed to compile your source code. Click on the link to see compiler's output.",
+  Accepted_Description: 'Congratulations. Your solution is correct.',
+  Wrong_Answer_Description: "Your program's output doesn't match judger's answer.",
+  Runtime_Error_Description: 'Your program terminated abnormally. Possible reasons are: segment fault, divided by zero or exited with code other than 0.',
+  Time_Limit_Exceeded_Description: 'The CPU time your program used has exceeded limit.',
+  Memory_Limit_Exceeded_Description: 'The memory your program actually used has exceeded limit.',
+  System_Error_Description: 'Oops, something has gone wrong with the judger. Please report this to administrator.',
   // ACMContestRank.vue
   Menu: 'Menu',
   Chart: 'Chart',
@@ -57,7 +54,6 @@ export const m = {
   TotalTime: 'TotalTime',
   Top_10_Teams: 'Top 10 Teams',
   save_as_image: 'save as image',
-
   // ACMHelper.vue
   ACM_Helper: 'ACM Helper',
   AC_Time: 'AC Time',
@@ -67,24 +63,20 @@ export const m = {
   Checked: 'Checked',
   Not_Checked: 'Not Checked',
   Check_It: 'Check It',
-
   // ACMRank.vue
   ACM_Ranklist: 'ACM Ranklist',
   mood: 'mood',
   AC: 'AC',
   Rating: 'Rating',
-
   // Announcements.vue
   Contest_Announcements: 'Contest Announcements',
   By: 'By',
-
   // ApplyResetPassword.vue
   The_email_doesnt_exist: 'The email doesn\'t exist',
   Success: 'Success',
   Password_reset_mail_sent: 'Password reset mail has been sent to your email，',
-
   // FAQ.vue
-  Frequently_Asked_Questions: '자주 물어보는 질문들',
+  Frequently_Asked_Questions: 'Frequently Asked Questions',
   Where_is_the_input_and_the_output: 'Where is the input and the output?',
   Where_is_the_input_and_the_output_answer_part_1: 'Your program shall read input from',
   Standard_Input: 'Standard Input',
@@ -114,15 +106,13 @@ export const m = {
   How_to_report_bugs: 'How to report bugs about this oj?',
   How_to_report_bugs_answer_part_1: 'The onlinejudge is open source, you can open an issue in',
   How_to_report_bugs_answer_part_2: 'The details(like env, version..) about a bug is required, which will help us a lot to solve the bug. Certainly, we are very pleased to merge your pull requests.',
-
   // Cancel.vue
   Cancel: 'Cancel',
-
   // ContestDetail.vue
-  Problems: '문제',
-  Announcements: '공지사항',
-  Submissions: '제출',
-  Rankings: '랭킹',
+  Problems: 'Problems',
+  Announcements: 'Announcements',
+  Submissions: 'Submissions',
+  Rankings: 'Rankings',
   Overview: 'Overview',
   Admin_Helper: 'Admin Helper',
   StartAt: 'StartAt',
@@ -131,7 +121,6 @@ export const m = {
   Creator: 'Creator',
   Public: 'Public',
   Password_Protected: 'Password Protected',
-
   // ContestList.vue
   Rule: 'Rule',
   OI: 'OI',
@@ -141,11 +130,9 @@ export const m = {
   Ended: 'Ended',
   No_contest: 'No contest',
   Please_login_first: 'Please login first!',
-
   // ContestProblemList
-  Problems_List: '문제 목록',
+  Problems_List: 'Problems List',
   No_Problems: 'No Problems',
-
   // CodeMirror.vue
   Language: 'Language',
   Theme: 'Theme',
@@ -154,68 +141,57 @@ export const m = {
   Monokai: 'Monokai',
   Solarized_Light: 'Solarized Light',
   Material: 'Material',
-
   // KatexEditor.vue
   Latex_Editor: 'Latex Editor',
-
   // NavBar.vue
-  Home: '홈',
-  NavProblems: '문제',
-  Contests: '대회',
-  NavStatus: '상태',
-  Rank: '랭킹',
-  ACM_Rank: 'ACM 랭킹',
-  OI_Rank: 'OI 랭킹',
+  Home: 'Home',
+  NavProblems: 'Problems',
+  Contests: 'Contests',
+  NavStatus: 'Status',
+  Rank: 'Rank',
+  ACM_Rank: 'ACM Rank',
+  OI_Rank: 'OI Rank',
   About: 'About',
-  Judger: '채점 시스템',
+  Judger: 'Judger',
   FAQ: 'FAQ',
-  Login: '로그인',
-  Register: '회원가입',
-  MyHome: '홈',
-  MySubmissions: '제출',
-  Settings: '설정',
-  Management: '관리',
-  Logout: '로그아웃',
+  Login: 'Login',
+  Register: 'Register',
+  MyHome: 'Home',
+  MySubmissions: 'Submissions',
+  Settings: 'Settings',
+  Management: 'Management',
+  Logout: 'Logout',
   Welcome_to: 'Welcome to',
-
   // announcements.vue
-  Refresh: '새로고침',
-  Back: '뒤로가기',
-  No_Announcements: '공지사항 없음',
-
+  Refresh: 'Refresh',
+  Back: 'Back',
+  No_Announcements: 'No Announcements',
   // Setting.vue
-  Profile: '프로필',
-  Account: '계정',
-  Security: '보안',
-
+  Profile: 'Profile',
+  Account: 'Account',
+  Security: 'Security',
   // AccoutSetting.vue
-  ChangePassword: '비밀번호 변경',
-  ChangeEmail: '이메일 변경',
-  Update_Password: '비밀번호 업데이트',
-
+  ChangePassword: 'Change Password',
+  ChangeEmail: 'Change Email',
+  Update_Password: 'Update Password',
   // ProfileSetting.vue
-  Avatar_Setting: '아바타 설정',
-  Profile_Setting: '프로필 설정',
-
+  Avatar_Setting: 'Avatar Setting',
+  Profile_Setting: 'Profile Setting',
   // SecuritySettig
-  Sessions: '세션',
-  Two_Factor_Authentication: '이중 인증',
-
+  Sessions: 'Sessions',
+  Two_Factor_Authentication: 'Two Factor Authentication',
   // Login.vue
-  LoginUsername: '아이디',
-  LoginPassword: '비밀번호',
-  TFA_Code: 'TFA 코드를 입력하세요.',
-  No_Account: '계정이 없으신가요? 회원가입하세요!',
-  Forget_Password: '비밀번호를 잊으셨나요?',
-  UserLogin: '로그인',
+  LoginUsername: 'Username',
+  LoginPassword: 'Password',
+  TFA_Code: 'Code from your TFA app',
+  No_Account: 'No account? Register now!',
+  Forget_Password: 'Forget Password',
+  UserLogin: 'Login',
   Welcome_back: 'Welcome back to OJ',
-
   // OIRank.vue
   OI_Ranklist: 'OI Ranklist',
-
   // OIContestRank.vue
   Total_Score: 'Total Score',
-
   // ProblemList.vue
   Problem_List: 'Problem List',
   High: 'High',
@@ -227,35 +203,30 @@ export const m = {
   Difficulty: 'Difficulty',
   Total: 'Total',
   AC_Rate: 'AC Rate',
-
   // Register.vue
-  RegisterUsername: '아이디',
-  Email_Address: '이메일 주소',
-  RegisterPassword: '비밀번호',
-  Password_Again: '비밀번호 확인',
+  RegisterUsername: 'Username',
+  Email_Address: 'Email Address',
+  RegisterPassword: 'Password',
+  Password_Again: 'Password Again',
   Captcha: 'Captcha',
-  UserRegister: '회원가입',
-  Already_Registed: '이미 등록하셨나요? 로그인하세요!',
+  UserRegister: 'Register',
+  Already_Registed: 'Already registed? Login now!',
   The_username_already_exists: 'The username already exists.',
   The_email_already_exists: 'The email already exists',
   password_does_not_match: 'password does not match',
   Thanks_for_registering: 'Thanks for your registering, you can login now',
-
   // ResetPassword.vue and ApplyResetPassword.vue
-  Reset_Password: '비밀번호 분실',
-  RPassword: '비밀번호',
-  RPassword_Again: '비밀번호 확인',
+  Reset_Password: 'Lost Password',
+  RPassword: 'Password',
+  RPassword_Again: 'Password Again',
   RCaptcha: 'Captcha',
-  ApplyEmail: '이메일 주소',
-  Send_Password_Reset_Email: '비밀번호 재전송을 위한 이메일 주소',
+  ApplyEmail: 'Your Email Address',
+  Send_Password_Reset_Email: 'Send Password Reset Email',
   Your_password_has_been_reset: 'Your password has been reset.',
-
   // Save.vue
   Save: 'Save',
-
   // Simditor.vue
   Uploading_is_in_progress: 'Uploading is in progress, are you sure to leave this page?',
-
   // SubmissionDetails.vue
   Lang: 'Lang',
   Share: 'Share',
@@ -263,7 +234,6 @@ export const m = {
   Succeeded: 'Succeeded',
   Real_Time: 'Real Time',
   Signal: 'Signal',
-
   // SubmissionList.vue
   When: 'When',
   ID: 'ID',
@@ -282,11 +252,10 @@ export const m = {
   Partial_Accepted: 'Partial Accepted',
   Compile_Error: 'Compile Error',
   Rejudge: 'Rejudge',
-
   // UserHome.vue
-  UserHomeSolved: '해결',
-  UserHomeserSubmissions: '제출',
-  UserHomeScore: '점수',
-  List_Solved_Problems: '푼 문제들',
-  UserHomeIntro: '아직 어떠한 문제도 풀지 않았습니다.'
+  UserHomeSolved: 'Solved',
+  UserHomeserSubmissions: 'Submissions',
+  UserHomeScore: 'Score',
+  List_Solved_Problems: 'List of solved problems',
+  UserHomeIntro: 'The guy is so lazy that has not solved any problem yet.'
 }
