@@ -158,7 +158,7 @@ export const m = {
   // KatexEditor.vue
   Latex_Editor: 'Latex Editor',
 
-  // NavBar.vue
+  // NavBar.vue (네비게이션 바)
   Home: '홈',
   NavProblems: '문제',
   Contests: '대회',
@@ -178,10 +178,10 @@ export const m = {
   Logout: '로그아웃',
   Welcome_to: '환영합니다',
 
-  // announcements.vue
-  Refresh: 'Refresh',
-  Back: 'Back',
-  No_Announcements: 'No Announcements',
+  // announcements.vue (홈 화면)
+  Refresh: '새로고침',
+  Back: '뒤로가기',
+  No_Announcements: '공지사항 없음',
 
   // Setting.vue
   Profile: 'Profile',
