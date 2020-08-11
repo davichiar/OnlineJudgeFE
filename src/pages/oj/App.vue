@@ -7,7 +7,7 @@
       </transition>
       <div class="footer">
         <p v-html="website.website_footer"></p>
-        <p>Powered by <a href="https://github.com/QingdaoU/OnlineJudge">OnlineJudge</a>
+        <p>Copyright &copy; 2020. SSAFY 3기 10팀 Co. All right reserved.</p>
           <span v-if="version">&nbsp; Version: {{ version }}</span>
         </p>
       </div>
