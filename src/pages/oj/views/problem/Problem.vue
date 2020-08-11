@@ -209,7 +209,7 @@
   import api from '@oj/api'
   import {pie, largePie} from './chartData'
 
-  //그만 표시된 그래픽 점용
+  // 그만 표시된 그래픽 점용
   const filtedStatus = ['-1', '-2', '0', '1', '2', '3', '4', '8']
 
   export default {
