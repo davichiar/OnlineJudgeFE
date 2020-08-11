@@ -129,9 +129,7 @@
     .logo {
       margin-left: 2%;
       margin-right: 2%;
-      font-size: 20px;
       float: left;
-      line-height: 60px;
     }
 
     .drop-menu {
