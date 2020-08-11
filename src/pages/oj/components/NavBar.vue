@@ -1,7 +1,11 @@
 <template>
   <div id="header">
     <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" class="oj-menu">
-      <div class="logo"><span>{{website.website_name}}</span></div>
+      <img class="logo" :src="`../static/logo.png`">
+      <Menu-item name="/">
+        <Icon type="home"></Icon>
+        {{$t('m.Home')}}
+      </Menu-item>
       <Menu-item name="/problem">
         <Icon type="ios-keypad"></Icon>
         {{$t('m.NavProblems')}}
@@ -22,10 +26,6 @@
           {{$t('m.FAQ')}}
         </Menu-item>
       </Submenu>
-      <Menu-item name="/">
-        <Icon type="home"></Icon>
-        {{$t('m.Home')}}
-      </Menu-item>
       <template v-if="!isAuthenticated">
         <div class="btn-menu">
           <Button type="ghost"
