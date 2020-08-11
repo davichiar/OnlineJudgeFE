@@ -130,7 +130,8 @@
       margin-left: 2%;
       margin-right: 2%;
       float: left;
-      width: 40px;
+      line-height: 60px;
+      width: 200px;
     }
 
     .drop-menu {
