@@ -36,16 +36,16 @@ export const m = {
   You_have_submission_in_this_problem_sure_to_cover_it: '다시 검증하시겠습니까?',
 
   // About.vue
-  Compiler: 'Compiler',
-  Result_Explanation: 'Result Explanation',
-  Pending_Judging_Description: 'You solution will be judged soon, please wait for result.',
-  Compile_Error_Description: "Failed to compile your source code. Click on the link to see compiler's output.",
-  Accepted_Description: 'Congratulations. Your solution is correct.',
-  Wrong_Answer_Description: "Your program's output doesn't match judger's answer.",
-  Runtime_Error_Description: 'Your program terminated abnormally. Possible reasons are: segment fault, divided by zero or exited with code other than 0.',
-  Time_Limit_Exceeded_Description: 'The CPU time your program used has exceeded limit.',
-  Memory_Limit_Exceeded_Description: 'The memory your program actually used has exceeded limit.',
-  System_Error_Description: 'Oops, something has gone wrong with the judger. Please report this to administrator.',
+  Compiler: '컴파일러',
+  Result_Explanation: '결과 설명',
+  Pending_Judging_Description: '곧 채점 될 예정입니다. 잠시만 기다려주세요.',
+  Compile_Error_Description: '소스코드 컴파일에 실패했습니다. 컴파일 오류 내용을 확인하세요.',
+  Accepted_Description: '정답입니다.',
+  Wrong_Answer_Description: '오답입니다.',
+  Runtime_Error_Description: '프로그램이 비정상적으로 종료되었습니다. 세그먼테이션 폴트나 0으로 나누기 오류 등이 있는지 확인하세요.',
+  Time_Limit_Exceeded_Description: '시간 초과입니다. (Java의 경우 3배의 시간이 부여됩니다.)',
+  Memory_Limit_Exceeded_Description: '메모리 초과입니다.',
+  System_Error_Description: '채점 시스템에 오류가 발생했습니다. 관리자에게 문의하세요.',
 
   // ACMContestRank.vue
   Menu: 'Menu',
