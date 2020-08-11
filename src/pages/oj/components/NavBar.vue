@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" class="oj-menu">
-      <img class="logo" :src="`../static/logo.png`">
+      <button class="hButton" v-on:click="hLink"><img class="logo" :src="`../static/logo.png`"></button>
       <Menu-item name="/">
         <Icon type="home"></Icon>
         {{$t('m.Home')}}
@@ -91,11 +91,13 @@
           visible: true,
           mode: mode
         })
-      }
+      },
+      hLink() {
+        window.open("http://localhost/", "_blank")
+      },
     },
     computed: {
       ...mapGetters(['website', 'modalStatus', 'user', 'isAuthenticated', 'isAdminRole']),
-      // 跟随路由变化
       activeMenu () {
         return '/' + this.$route.path.split('/')[1]
       },
