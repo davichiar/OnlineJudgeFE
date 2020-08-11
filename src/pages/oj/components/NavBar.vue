@@ -93,7 +93,7 @@
         })
       },
       hLink: function () {
-        window.open('http://i3a210.p.ssafy.io/')
+        window.open('http://i3a210.p.ssafy.io/', '_self')
       }
     },
     computed: {
