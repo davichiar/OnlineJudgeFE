@@ -92,7 +92,7 @@
           mode: mode
         })
       },
-      hLink() {
+      hLink: function () {
         window.open('http://localhost/')
       },
     },
