@@ -32,7 +32,7 @@ import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/toolbox'
 import 'echarts/lib/component/markPoint'
 
-// register global utility filters.
+// 글로벌 유틸리티 필터를 등록하십시오.
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
@@ -55,7 +55,7 @@ Vue.component(VerticalMenu.name, VerticalMenu)
 Vue.component(VerticalMenuItem.name, VerticalMenuItem)
 Vue.component(Panel.name, Panel)
 
-// 注册全局消息提示
+// 전역 메시지 표시 등록
 Vue.prototype.$Message.config({
   duration: 2
 })

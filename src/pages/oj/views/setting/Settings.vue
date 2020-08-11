@@ -130,7 +130,7 @@
   }
 
   .ivu-menu-vertical.ivu-menu-light:after {
-    /*取消默认的伪元素*/
+    /*묵인취소위조*/
     width: 0;
   }
 </style>

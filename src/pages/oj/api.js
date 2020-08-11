@@ -35,7 +35,7 @@ export default {
       }
     })
   },
-  // 注册
+  // 등록
   register (data) {
     return ajax('register', 'post', {
       data
@@ -291,11 +291,11 @@ function ajax (url, method, options) {
       params,
       data
     }).then(res => {
-      // API正常返回(status=20x), 是否错误通过有无error判断
+      // API 정상회귀(status20x), 오류여부는 error 유무 판단
       if (res.data.error !== null) {
         Vue.prototype.$error(res.data.data)
         reject(res)
-        // 若后端返回为登录，则为session失效，应退出当前登录用户
+        // 만약 백그라운드가 로그인으로 돌아오면, 세션이 무효가 되므로 현재 로그인한 사용자를 로그아웃 해야한다.
         if (res.data.data.startsWith('Please login')) {
           store.dispatch('changeModalStatus', {'mode': 'login', 'visible': true})
         }
@@ -306,7 +306,7 @@ function ajax (url, method, options) {
         // }
       }
     }, res => {
-      // API请求异常，一般为Server error 或 network error
+      // API 요청 이상, 일반적으로 Server error or network error
       reject(res)
       Vue.prototype.$error(res.data.data)
     })

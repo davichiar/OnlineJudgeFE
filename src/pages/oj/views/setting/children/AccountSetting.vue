@@ -67,7 +67,7 @@
           if (this.formPassword.old_password === this.formPassword.new_password) {
             callback(new Error('The new password doesn\'t change'))
           } else {
-            // 对第二个密码框再次验证
+            // 두번째 비밀번호 재인증
             this.$refs.formPassword.validateField('again_password')
           }
         }

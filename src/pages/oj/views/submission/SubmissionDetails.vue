@@ -17,7 +17,7 @@
       </Alert>
     </Col>
 
-    <!--后台返info就显示出来， 权限控制放后台 -->
+    <!-- 백스테이지가 info로 돌아오면 표시되며, 권한 제어 백스테이지 -->
     <Col v-if="submission.info && !isCE" :span="20">
       <Table stripe :loading="loading" :disabled-hover="true" :columns="columns" :data="submission.info.data"></Table>
     </Col>
@@ -111,7 +111,7 @@
           this.loading = false
           let data = res.data.data
           if (data.info && data.info.data && !this.isConcat) {
-            // score exist means the submission is OI problem submission
+            // 점수가 존재한다는 것은 제출이 OI 문제 제출이라는 것을 의미한다.
             if (data.info.data[0].score !== undefined) {
               this.isConcat = true
               const scoreColumn = {

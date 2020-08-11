@@ -51,7 +51,7 @@
     data () {
       const CheckPassword = (rule, value, callback) => {
         if (this.formResetPassword.passwdCheck !== '') {
-          // 对第二个密码框再次验证
+          // 두번째 비밀번호 재인증
           this.$refs.formResetPassword.validateField('passwordAgain')
         }
         callback()

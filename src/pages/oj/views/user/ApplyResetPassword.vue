@@ -84,7 +84,7 @@
         this.validateForm('formResetPassword').then(() => {
           this.btnLoading = true
           api.applyResetPassword(this.formResetPassword).then(res => {
-            // 伪加载
+            // 거짓 다운로드
             setTimeout(() => {
               this.btnLoading = false
               this.successApply = true

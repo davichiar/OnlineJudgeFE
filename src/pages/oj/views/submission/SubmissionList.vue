@@ -185,7 +185,7 @@
     mounted () {
       this.init()
       this.JUDGE_STATUS = Object.assign({}, JUDGE_STATUS)
-      // 去除submitting的状态 和 两个
+      // 서브미팅을 제거한 상태와 둘 다
       delete this.JUDGE_STATUS['9']
       delete this.JUDGE_STATUS['2']
     },
@@ -232,7 +232,7 @@
           this.loadingTable = false
         })
       },
-      // 改变route， 通过监听route变化请求数据，这样可以产生route history， 用户返回时就会保存之前的状态
+      // route를 변경하고, route 변화 요청 데이터를 감청함으로써 route history가 생성되고, 사용자가 돌아올 때 이전 상태로 저장된다.
       changeRoute () {
         let query = utils.filterEmptyValue(this.buildQuery())
         query.contestID = this.contestID
