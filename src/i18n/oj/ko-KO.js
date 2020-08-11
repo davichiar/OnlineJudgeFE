@@ -196,7 +196,7 @@ export const m = {
   // ProfileSetting.vue
   Avatar_Setting: '아바타 설정',
   Profile_Setting: '프로필 설정',
-  
+
   // SecuritySettig
   Sessions: '세션',
   Two_Factor_Authentication: '이중 인증',
