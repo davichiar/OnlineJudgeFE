@@ -150,7 +150,7 @@
       float: left;
       line-height: 60px;
       width: 200px;
-      cursor:pointer;
+      cursor: pointer;
     }
 
     .drop-menu {
