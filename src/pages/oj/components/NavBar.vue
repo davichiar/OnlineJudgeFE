@@ -93,7 +93,7 @@
         })
       },
       hLink() {
-        window.open("http://localhost/", "_blank")
+        window.open('http://localhost/')
       },
     },
     computed: {
