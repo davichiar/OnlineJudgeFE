@@ -94,7 +94,7 @@
       },
       hLink: function () {
         window.open('http://localhost/')
-      },
+      }
     },
     computed: {
       ...mapGetters(['website', 'modalStatus', 'user', 'isAuthenticated', 'isAdminRole']),
