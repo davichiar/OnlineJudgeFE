@@ -24,7 +24,7 @@ export default [
   {
     name: 'home',
     path: '/',
-    meta: {title: 'Home'},
+    meta: {title: '메인 화면'},
     component: Home
   },
   {

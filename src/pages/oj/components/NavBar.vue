@@ -83,7 +83,7 @@
         if (route && route.indexOf('admin') < 0) {
           this.$router.push(route)
         } else {
-          window.open('/admin/')
+          window.open('/admin/', '_self')
         }
       },
       handleBtnClick (mode) {
