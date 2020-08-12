@@ -10,7 +10,7 @@
             </el-button>
           </el-col>
           <el-col :span="selectedUsers.length ? 16: 24">
-            <el-input v-model="keyword" prefix-icon="el-icon-search" placeholder="Keywords"></el-input>
+            <el-input v-model="keyword" prefix-icon="el-icon-search" placeholder="키워드"></el-input>
           </el-col>
         </el-row>
       </div>
@@ -134,10 +134,6 @@
           </el-col>
         </el-row>
       </el-form>
-      <span slot="footer" class="dialog-footer">
-        <cancel @click.native="showUserDialog = false">Cancel</cancel>
-        <save @click.native="saveUser()"></save>
-      </span>
     </el-dialog>
   </div>
 </template>
