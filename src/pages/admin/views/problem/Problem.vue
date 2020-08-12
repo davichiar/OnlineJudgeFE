@@ -56,7 +56,7 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :span="4">
+          <el-col :span="8">
             <el-form-item :label="$t('m.Visible')">
               <el-switch
                 v-model="problem.visible"
@@ -149,7 +149,7 @@
         <el-form-item style="margin-top: 20px" :label="$t('m.Hint')">
           <Simditor v-model="problem.hint" placeholder=""></Simditor>
         </el-form-item>
-        <el-form-item :label="$t('m.Code_Template')">
+        <el-form-item :label="$t('m.Code_Template')" style="display:none">
           <el-row>
             <el-col :span="24" v-for="(v, k) in template" :key="'template'+k">
               <el-form-item>
@@ -161,12 +161,12 @@
             </el-col>
           </el-row>
         </el-form-item>
-        <el-form-item :label="$t('m.Special_Judge')" :error="error.spj">
+        <el-form-item :label="$t('m.Special_Judge')" :error="error.spj" style="display:none">
           <el-col :span="24">
             <el-checkbox v-model="problem.spj" @click.native.prevent="switchSpj()">{{$t('m.Use_Special_Judge')}}</el-checkbox>
           </el-col>
         </el-form-item>
-        <el-form-item v-if="problem.spj">
+        <el-form-item v-if="problem.spj" style="display:none">
           <Accordion :title="$t('m.Special_Judge_Code')">
             <template slot="header">
               <span>{{$t('m.SPJ_language')}}</span>
@@ -185,7 +185,7 @@
           </Accordion>
         </el-form-item>
         <el-row :gutter="20">
-          <el-col :span="4">
+          <el-col :span="4" style="display:none">
             <el-form-item :label="$t('m.Type')">
               <el-radio-group v-model="problem.rule_type" :disabled="disableRuleType">
                 <el-radio label="ACM">ACM</el-radio>
@@ -193,7 +193,7 @@
               </el-radio-group>
             </el-form-item>
           </el-col>
-          <el-col :span="6">
+          <el-col :span="12">
             <el-form-item :label="$t('m.TestCase')" :error="error.testcase">
               <el-upload
                 action="/api/admin/test_case"
@@ -202,12 +202,12 @@
                 :show-file-list="true"
                 :on-success="uploadSucceeded"
                 :on-error="uploadFailed">
-                <el-button size="small" type="primary" icon="el-icon-fa-upload">Choose File</el-button>
+                <el-button size="small" type="primary" icon="el-icon-fa-upload">파일 선택</el-button>
               </el-upload>
             </el-form-item>
           </el-col>
 
-          <el-col :span="6">
+          <el-col :span="6" style="display:none">
             <el-form-item :label="$t('m.IOMode')">
               <el-radio-group v-model="problem.io_mode.io_mode">
                 <el-radio label="Standard IO">Standard IO</el-radio>
@@ -255,7 +255,7 @@
           </el-col>
         </el-row>
 
-        <el-form-item :label="$t('m.Source')">
+        <el-form-item :label="$t('m.Source')" style="display:none">
           <el-input :placeholder="$t('m.Source')" v-model="problem.source"></el-input>
         </el-form-item>
         <save @click.native="submit()">Save</save>
