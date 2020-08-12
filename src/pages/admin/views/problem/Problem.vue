@@ -65,7 +65,7 @@
               </el-switch>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="4" style="display:none">
             <el-form-item :label="$t('m.ShareSubmission')">
               <el-switch
                 v-model="problem.share_submission"
