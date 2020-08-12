@@ -1,16 +1,5 @@
 <template>
   <div>
-    <panel class="container">
-      <div slot="title">{{$t('m.Compiler')}} & {{$t('m.Judger')}}</div>
-      <div class="content markdown-body">
-        <ul>
-          <li v-for="lang in languages">{{lang.name}} ( {{lang.description}} )
-            <pre>{{lang.config.compile.compile_command}}</pre>
-          </li>
-        </ul>
-      </div>
-    </panel>
-
     <panel :padding="15" class="container">
       <div slot="title">{{$t('m.Result_Explanation')}}</div>
       <div class="content">
@@ -33,7 +22,16 @@
         </ul>
       </div>
     </panel>
-
+    <panel class="container">
+      <div slot="title">{{$t('m.Compiler')}} & {{$t('m.Judger')}}</div>
+      <div class="content markdown-body">
+        <ul>
+          <li v-for="lang in languages">{{lang.name}} ( {{lang.description}} )
+            <pre>{{lang.config.compile.compile_command}}</pre>
+          </li>
+        </ul>
+      </div>
+    </panel>
   </div>
 </template>
 
