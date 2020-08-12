@@ -2,7 +2,7 @@
   <el-menu class="vertical_menu"
            :router="true" :default-active="currentPath">
     <div class="logo">
-      <img :src="`../static/profile.png`" alt="oj admin"/>
+      <img :src="`../static/profile.png`" alt="oj admin" v-on:click="hLink"/>
     </div>
     <el-menu-item index="/"><i class="el-icon-menu"></i>{{$t('m.User')}} 관리</el-menu-item>
     <el-submenu index="problem" v-if="hasProblemPermission">
@@ -25,6 +25,11 @@
     },
     mounted () {
       this.currentPath = this.$route.path
+    },
+    methods: {
+      hLink: function () {
+        window.open('/', '_self')
+      }
     },
     computed: {
       ...mapGetters(['user', 'isSuperAdmin', 'hasProblemPermission'])
