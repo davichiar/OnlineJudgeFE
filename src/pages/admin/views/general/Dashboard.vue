@@ -91,9 +91,9 @@
           <el-col :span="12">
             <el-form-item :label="$t('m.User_Type')">
               <el-select v-model="user.admin_type">
-                <el-option label="Regular User" value="Regular User"></el-option>
-                <el-option label="Admin" value="Admin"></el-option>
-                <el-option label="Super Admin" value="Super Admin"></el-option>
+                <el-option label="일반 유저" value="Regular User"></el-option>
+                <el-option label="관리자" value="Admin"></el-option>
+                <el-option label="운영자" value="Super Admin"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
