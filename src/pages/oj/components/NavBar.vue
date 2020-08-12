@@ -40,7 +40,7 @@
           </Button>
           <Dropdown-menu slot="list">
             <Dropdown-item name="/status?myself=1">나의 {{$t('m.MySubmissions')}} 목록</Dropdown-item>
-            <Dropdown-item name="/setting/profile">로그인 {{$t('m.Settings')}}</Dropdown-item>
+            <Dropdown-item name="/setting/profile">계정 {{$t('m.Settings')}}</Dropdown-item>
             <Dropdown-item v-if="isAdminRole" name="/admin">{{$t('m.Management')}}자 기능</Dropdown-item>
             <Dropdown-item divided name="/logout">{{$t('m.Logout')}}</Dropdown-item>
           </Dropdown-menu>
