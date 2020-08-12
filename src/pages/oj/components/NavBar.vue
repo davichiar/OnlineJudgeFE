@@ -4,7 +4,7 @@
       <img class="logo" :src="`../static/logo.png`" v-on:click="hLink">
       <Menu-item name="/">
         <Icon type="home"></Icon>
-        {{$t('m.FAQ')}}
+        {{$t('m.Home')}}
       </Menu-item>
       <Menu-item name="/problem">
         <Icon type="ios-keypad"></Icon>
