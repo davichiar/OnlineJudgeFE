@@ -1,5 +1,5 @@
 <template>
-  <panel>
+  <div class="content markdown-body">
     <div class="setting-main">
       <div class="flex-container">
         <div class="left">
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-  </panel>
+  </div>
 </template>
 
 <script>
@@ -181,6 +181,25 @@
     .right {
       flex: 1 0;
       width: 250px;
+    }
+  }
+
+  .content {
+    font-size: 16px;
+    margin: 0 50px 40px 50px;
+    > ul {
+      list-style: disc;
+      li {
+        font-size: 16px;
+        margin-top: 20px;
+        &:first-child {
+          margin-top: 0;
+        }
+        p {
+          font-size: 14px;
+          margin-top: 5px;
+        }
+      }
     }
   }
 </style>
