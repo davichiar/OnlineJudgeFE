@@ -18,11 +18,11 @@
         <el-table-column
           width="100"
           prop="id"
-          label="ID">
+          label="아이디">
         </el-table-column>
         <el-table-column
           width="150"
-          label="Display ID">
+          label="문제 번호">
           <template slot-scope="{row}">
             <span v-show="!row.isEditing">{{row._id}}</span>
             <el-input v-show="row.isEditing" v-model="row._id"
@@ -33,7 +33,7 @@
         </el-table-column>
         <el-table-column
           prop="title"
-          label="Title">
+          label="제목">
           <template slot-scope="{row}">
             <span v-show="!row.isEditing">{{row.title}}</span>
             <el-input v-show="row.isEditing" v-model="row.title"
@@ -43,12 +43,12 @@
         </el-table-column>
         <el-table-column
           prop="created_by.username"
-          label="Author">
+          label="작성자">
         </el-table-column>
         <el-table-column
           width="200"
           prop="create_time"
-          label="Create Time">
+          label="작성 시간">
           <template slot-scope="scope">
             {{scope.row.create_time | localtime }}
           </template>
@@ -56,7 +56,7 @@
         <el-table-column
           width="100"
           prop="visible"
-          label="Visible">
+          label="숨김 기능">
           <template slot-scope="scope">
             <el-switch v-model="scope.row.visible"
                        active-text=""
@@ -67,22 +67,22 @@
         </el-table-column>
         <el-table-column
           fixed="right"
-          label="Operation"
+          label="설정"
           width="250">
           <div slot-scope="scope">
-            <icon-btn name="Edit" icon="edit" @click.native="goEdit(scope.row.id)"></icon-btn>
-            <icon-btn v-if="contestId" name="Make Public" icon="clone"
+            <icon-btn name="수정" icon="edit" @click.native="goEdit(scope.row.id)"></icon-btn>
+            <icon-btn v-if="contestId" name="공유" icon="clone"
                       @click.native="makeContestProblemPublic(scope.row.id)"></icon-btn>
-            <icon-btn icon="download" name="Download TestCase"
+            <icon-btn icon="download" name="테스트 케이스 다운"
                       @click.native="downloadTestCase(scope.row.id)"></icon-btn>
-            <icon-btn icon="trash" name="Delete Problem"
+            <icon-btn icon="trash" name="문제 삭제"
                       @click.native="deleteProblem(scope.row.id)"></icon-btn>
           </div>
         </el-table-column>
       </el-table>
       <div class="panel-options">
         <el-button type="primary" size="small"
-                   @click="goCreateProblem" icon="el-icon-plus">Create
+                   @click="goCreateProblem" icon="el-icon-plus">문제 만들기
         </el-button>
         <el-button v-if="contestId" type="primary"
                    size="small" icon="el-icon-plus"
