@@ -134,6 +134,10 @@
           </el-col>
         </el-row>
       </el-form>
+      <span slot="footer" class="dialog-footer">
+        <cancel @click.native="showUserDialog = false">Cancel</cancel>
+        <save @click.native="saveUser()"></save>
+      </span>
     </el-dialog>
   </div>
 </template>
