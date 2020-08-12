@@ -23,12 +23,12 @@
           </el-col>
         </el-row>
         <el-row :gutter="15">
-          <el-col :span="24">
+          <el-col :span="12">
             <el-form-item prop="input_description" :label="$t('m.Input_Description')" required>
               <Simditor v-model="problem.input_description"></Simditor>
             </el-form-item>
           </el-col>
-          <el-col :span="24">
+          <el-col :span="12">
             <el-form-item prop="output_description" :label="$t('m.Output_Description')" required>
               <Simditor v-model="problem.output_description"></Simditor>
             </el-form-item>
