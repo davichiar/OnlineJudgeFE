@@ -1,88 +1,60 @@
 <template>
-  <Row type="flex" justify="space-around">
-    <Col :span="22">
-    <panel shadow v-if="contests.length" class="contest">
-      <div slot="title">
-        <Button type="text"  class="contest-title" @click="goContest">{{contests[index].title}}</Button>
-      </div>
-      <Carousel v-model="index" trigger="hover" autoplay :autoplay-speed="6000" class="contest">
-        <CarouselItem v-for="(contest, index) of contests" :key="index">
-          <div class="contest-content">
-            <div class="contest-content-tags">
-              <Button type="info" shape="circle" size="small" icon="calendar">
-                {{contest.start_time | localtime('YYYY-M-D HH:mm') }}
-              </Button>
-              <Button type="success" shape="circle" size="small" icon="android-time">
-                {{getDuration(contest.start_time, contest.end_time)}}
-              </Button>
-              <Button type="warning" shape="circle" size="small" icon="trophy">
-                {{contest.rule_type}}
-              </Button>
-            </div>
-            <div class="contest-content-description">
-              <blockquote v-html="contest.description"></blockquote>
-            </div>
-          </div>
-        </CarouselItem>
-      </Carousel>
-    </panel>
-    <Announcements class="announcement"></Announcements>
-    </Col>
-  </Row>
+  <panel>
+    <div slot="title">{{$t('m.Frequently_Asked_Questions')}}</div>
+    <div class="content markdown-body">
+      <ul>
+        <li>{{$t('m.Where_is_the_input_and_the_output')}}
+          <p>{{$t('m.Where_is_the_input_and_the_output_answer_part_1')}} <code>stdin</code> ('{{$t('m.Standard_Input')}}') {{$t('m.Where_is_the_input_and_the_output_answer_part_3')}} <code>stdout</code>
+            ('{{$t('m.Standard_Output')}}') {{$t('m.Where_is_the_input_and_the_output_answer_part_5')}} <code>scanf</code> {{$t('m.Where_is_the_input_and_the_output_answer_part_6')}} <code>cin</code>
+            {{$t('m.Where_is_the_input_and_the_output_answer_part_7')}} <code>printf</code> {{$t('m.Where_is_the_input_and_the_output_answer_part_8')}} <code>cout</code> {{$t('m.Where_is_the_input_and_the_output_answer_part_9')}} <code>{{$t('m.Runtime_Error')}}</code>.
+          </p>
+        </li>
+        <li>{{$t('m.What_is_the_meaning_of_submission_execution_time')}}
+        <p>{{$t('m.What_is_the_meaning_of_submission_execution_time_answer')}}
+        </p>
+        </li>
+        <li>{{$t('m.How_Can_I_use_CPP_Int64')}}
+          <p>{{$t('m.How_Can_I_use_CPP_Int64_answer_part_1')}}<code>long long</code> {{$t('m.How_Can_I_use_CPP_Int64_answer_part_2')}} <code>cin/cout</code> {{$t('m.or')}} <code>%lld</code>, {{$t('m.using')}}<code> __int64</code> {{$t('m.How_Can_I_use_CPP_Int64_answer_part_3')}} <code>{{$t('m.Compile_Error')}}</code>.</p>
+        </li>
+        <li>{{$t('m.Java_specifications')}}
+          <p>{{$t('m.Java_specifications_answer_part_1')}} <code>Main</code> {{$t('m.Java_specifications_answer_part_2')}} <code>Main</code> {{$t('m.Java_specifications_answer_part_3')}}</p>
+        </li>
+        <li>{{$t('m.About_presentation_error')}}
+          <p>{{$t('m.About_presentation_error_answer_part_1')}} <b>{{$t('m.last')}}</b> {{$t('m.About_presentation_error_answer_part_2')}} <code> {{$t('m.Wrong_Answer')}}</code>.</p>
+        </li>
+        <li>{{$t('m.How_to_report_bugs')}}
+          <p>{{$t('m.How_to_report_bugs_answer_part_1')}} <a href="https://github.com/QingdaoU/OnlineJudge">Github</a>
+            {{$t('m.How_to_report_bugs_answer_part_2')}}
+          </p>
+        </li>
+      </ul>
+    </div>
+  </panel>
 </template>
 
 <script>
-  import Announcements from './Announcements.vue'
-  import api from '@oj/api'
-  import time from '@/utils/time'
-  import { CONTEST_STATUS } from '@/utils/constants'
-
   export default {
-    name: 'home',
-    components: {
-      Announcements
-    },
-    data () {
-      return {
-        contests: [],
-        index: 0
-      }
-    },
-    mounted () {
-      let params = {status: CONTEST_STATUS.NOT_START}
-      api.getContestList(0, 5, params).then(res => {
-        this.contests = res.data.data.results
-      })
-    },
-    methods: {
-      getDuration (startTime, endTime) {
-        return time.duration(startTime, endTime)
-      },
-      goContest () {
-        this.$router.push({
-          name: 'contest-details',
-          params: {contestID: this.contests[this.index].id}
-        })
-      }
-    }
+    name: 'home'
   }
 </script>
 
 <style lang="less" scoped>
-  .contest {
-    &-title {
-      font-style: italic;
-      font-size: 21px;
-    }
-    &-content {
-      padding: 0 70px 40px 70px;
-      &-description {
-        margin-top: 25px;
+  .content {
+    font-size: 16px;
+    margin: 0 50px 40px 50px;
+    > ul {
+      list-style: disc;
+      li {
+        font-size: 16px;
+        margin-top: 20px;
+        &:first-child {
+          margin-top: 0;
+        }
+        p {
+          font-size: 14px;
+          margin-top: 5px;
+        }
       }
     }
-  }
-
-  .announcement {
-    margin-top: 20px;
   }
 </style>
