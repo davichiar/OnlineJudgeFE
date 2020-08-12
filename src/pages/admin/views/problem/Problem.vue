@@ -16,14 +16,14 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :span="24">
+          <el-col :span="15">
             <el-form-item prop="description" :label="$t('m.Description')" required>
               <Simditor v-model="problem.description"></Simditor>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :span="24">
+          <el-col :span="15">
             <el-form-item prop="input_description" :label="$t('m.Input_Description')" required>
               <Simditor v-model="problem.input_description"></Simditor>
             </el-form-item>
@@ -258,6 +258,8 @@
         <el-form-item :label="$t('m.Source')" style="display:none">
           <el-input :placeholder="$t('m.Source')" v-model="problem.source"></el-input>
         </el-form-item>
+
+        <br>
         <save @click.native="submit()">Save</save>
       </el-form>
     </Panel>
