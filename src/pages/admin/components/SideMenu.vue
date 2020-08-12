@@ -50,6 +50,7 @@
     .logo {
       margin: 20px 0;
       text-align: center;
+      cursor: pointer;
       img {
         background-color: #fff;
         border-radius: 50%;
