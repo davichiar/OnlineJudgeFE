@@ -1,47 +1,49 @@
 <template>
-  <div class="setting-main">
-    <div class="flex-container">
-      <div class="left">
-        <p class="section-title">{{$t('m.ChangePassword')}}</p>
-        <Form class="setting-content" ref="formPassword" :model="formPassword" :rules="rulePassword">
-          <FormItem label="Old Password" prop="old_password">
-            <Input v-model="formPassword.old_password" type="password"/>
-          </FormItem>
-          <FormItem label="New Password" prop="new_password">
-            <Input v-model="formPassword.new_password" type="password"/>
-          </FormItem>
-          <FormItem label="Confirm New Password" prop="again_password">
-            <Input v-model="formPassword.again_password" type="password"/>
-          </FormItem>
-          <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
-            <Input v-model="formPassword.tfa_code"/>
-          </FormItem>
-          <FormItem v-if="visible.passwordAlert">
-            <Alert type="success">You will need to login again after 5 seconds..</Alert>
-          </FormItem>
-          <Button type="primary" @click="changePassword">{{$t('m.Update_Password')}}</Button>
-        </Form>
-      </div>
+  <div class="content markdown-body">
+    <div class="setting-main">
+      <div class="flex-container">
+        <div class="left">
+          <p class="section-title">{{$t('m.ChangePassword')}}</p>
+          <Form class="setting-content" ref="formPassword" :model="formPassword" :rules="rulePassword">
+            <FormItem label="이전 비밀번호" prop="old_password">
+              <Input v-model="formPassword.old_password" type="password"/>
+            </FormItem>
+            <FormItem label="새 비밀번호" prop="new_password">
+              <Input v-model="formPassword.new_password" type="password"/>
+            </FormItem>
+            <FormItem label="비밀번호 검증" prop="again_password">
+              <Input v-model="formPassword.again_password" type="password"/>
+            </FormItem>
+            <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
+              <Input v-model="formPassword.tfa_code"/>
+            </FormItem>
+            <FormItem v-if="visible.passwordAlert">
+              <Alert type="success">You will need to login again after 5 seconds..</Alert>
+            </FormItem>
+            <Button type="primary" @click="changePassword">{{$t('m.Update_Password')}}</Button>
+          </Form>
+        </div>
 
-      <div class="middle separator"></div>
+        <div class="middle separator"></div>
 
-      <div class="right">
-        <p class="section-title">{{$t('m.ChangeEmail')}}</p>
-        <Form class="setting-content" ref="formEmail" :model="formEmail" :rules="ruleEmail">
-          <FormItem label="Current Password" prop="password">
-            <Input v-model="formEmail.password" type="password"/>
-          </FormItem>
-          <FormItem label="Old Email">
-            <Input v-model="formEmail.old_email" disabled/>
-          </FormItem>
-          <FormItem label="New Email" prop="new_email">
-            <Input v-model="formEmail.new_email"/>
-          </FormItem>
-          <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
-            <Input v-model="formEmail.tfa_code"/>
-          </FormItem>
-          <Button type="primary" @click="changeEmail">{{$t('m.ChangeEmail')}}</Button>
-        </Form>
+        <div class="right">
+          <p class="section-title">{{$t('m.ChangeEmail')}}</p>
+          <Form class="setting-content" ref="formEmail" :model="formEmail" :rules="ruleEmail">
+            <FormItem label="기존 비밀번호" prop="password">
+              <Input v-model="formEmail.password" type="password"/>
+            </FormItem>
+            <FormItem label="이전 이메일">
+              <Input v-model="formEmail.old_email" disabled/>
+            </FormItem>
+            <FormItem label="새 이메일" prop="new_email">
+              <Input v-model="formEmail.new_email"/>
+            </FormItem>
+            <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
+              <Input v-model="formEmail.tfa_code"/>
+            </FormItem>
+            <Button type="primary" @click="changeEmail">{{$t('m.ChangeEmail')}}</Button>
+          </Form>
+        </div>
       </div>
     </div>
   </div>
@@ -179,6 +181,25 @@
     .right {
       flex: 1 0;
       width: 250px;
+    }
+  }
+
+  .content {
+    font-size: 16px;
+    margin: 0 50px 40px 50px;
+    > ul {
+      list-style: disc;
+      li {
+        font-size: 16px;
+        margin-top: 20px;
+        &:first-child {
+          margin-top: 0;
+        }
+        p {
+          font-size: 14px;
+          margin-top: 5px;
+        }
+      }
     }
   }
 </style>
