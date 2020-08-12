@@ -166,7 +166,7 @@ export const m = {
   Rank: '랭킹',
   ACM_Rank: 'ACM 랭킹',
   OI_Rank: 'OI 랭킹',
-  About: 'About',
+  About: '도움말',
   Judger: '채점 시스템',
   FAQ: 'FAQ',
   Login: '로그인',
