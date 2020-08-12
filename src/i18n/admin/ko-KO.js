@@ -38,7 +38,7 @@ export const m = {
   General_Announcement: '공지사항',
   Announcement_Title: '제목',
   Announcement_Content: '내용',
-  Announcement_Status: '상태',
+  Announcement_Status: '제출',
 
   // Conf.vue
   SMTP_Config: 'SMTP 설정',
