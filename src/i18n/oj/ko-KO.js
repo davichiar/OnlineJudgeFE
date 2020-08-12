@@ -226,7 +226,7 @@ export const m = {
   Pick_One: '랜덤 선택',
   Difficulty: '난이도',
   Total: '총합',
-  AC_Rate: 'AC 랭크',
+  AC_Rate: '정답률',
 
   // Register.vue
   RegisterUsername: '아이디',
