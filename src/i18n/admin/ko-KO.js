@@ -67,6 +67,7 @@ export const m = {
   Test_Case_Prune_Test_Case: '테스트 케이스 가지치기',
 
   // Problem.vue
+  Add_Problem: '문제 만들기',
   Display_ID: '번호',
   Title: '제목',
   Description: '설명',
