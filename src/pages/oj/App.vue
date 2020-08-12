@@ -6,10 +6,7 @@
         <router-view></router-view>
       </transition>
       <div class="footer">
-        <p v-html="website.website_footer"></p>
         <p>Copyright &copy; 2020. SSAFY 3기 10팀 Co. All right reserved.</p>
-          <span v-if="version">&nbsp; Version: {{ version }}</span>
-        </p>
       </div>
     </div>
     <BackTop></BackTop>
