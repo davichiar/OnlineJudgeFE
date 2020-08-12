@@ -64,6 +64,77 @@
         </el-pagination>
       </div>
     </Panel>
+
+    <el-dialog :title="$t('m.User_Info')" :visible.sync="showUserDialog" :close-on-click-modal="false">
+      <el-form :model="user" label-width="120px" label-position="left">
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_Username')" required>
+              <el-input v-model="user.username"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_Real_Name')" required>
+              <el-input v-model="user.real_name"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_Email')" required>
+              <el-input v-model="user.email"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_New_Password')">
+              <el-input v-model="user.password"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_Type')">
+              <el-select v-model="user.admin_type">
+                <el-option label="Regular User" value="Regular User"></el-option>
+                <el-option label="Admin" value="Admin"></el-option>
+                <el-option label="Super Admin" value="Super Admin"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.Problem_Permission')">
+              <el-select v-model="user.problem_permission" :disabled="user.admin_type!=='Admin'">
+                <el-option label="None" value="None"></el-option>
+                <el-option label="Own" value="Own"></el-option>
+                <el-option label="All" value="All"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item :label="$t('m.Two_Factor_Auth')">
+              <el-switch
+                v-model="user.two_factor_auth"
+                :disabled="!user.real_tfa"
+                active-color="#13ce66"
+                inactive-color="#ff4949">
+              </el-switch>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="Open Api">
+              <el-switch
+                v-model="user.open_api"
+                active-color="#13ce66"
+                inactive-color="#ff4949">
+              </el-switch>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item :label="$t('m.Is_Disabled')">
+              <el-switch
+                v-model="user.is_disabled">
+              </el-switch>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+    </el-dialog>
   </div>
 </template>
 
