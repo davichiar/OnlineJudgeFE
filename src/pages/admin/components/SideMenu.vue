@@ -4,7 +4,7 @@
     <div class="logo">
       <img :src="`../static/profile.png`" alt="oj admin"/>
     </div>
-    <el-menu-item index="/"><i class="el-icon-fa-dashboard"></i>{{$t('m.Dashboard')}}</el-menu-item>
+    <el-menu-item index="/"><i class="el-icon-menu"></i>{{$t('m.User')}}</el-menu-item>
     <el-menu-item index="/user"><i class="el-icon-menu"></i>{{$t('m.User')}}</el-menu-item>
     <el-submenu index="problem" v-if="hasProblemPermission">
       <template slot="title"><i class="el-icon-fa-bars"></i>{{$t('m.Problem')}}</template>
