@@ -1,147 +1,185 @@
 <template>
-  <div class="container">
-    <Card :padding="0">
-      <div class="flex-container">
-        <div class="menu">
-          <Menu accordion @on-select="goRoute" :activeName="activeName" style="text-align: center;" width="auto">
-            <div class="avatar-editor">
-              <div class="avatar-container">
-                <img class="avatar" :src="profile.avatar"/>
-                <div class="avatar-mask">
-                  <a @click.stop="goRoute({name: 'profile-setting'})">
-                    <div class="mask-content">
-                      <Icon type="camera" size="30"></Icon>
-                      <p class="text">change avatar</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <Menu-item name="/setting/account">{{$t('m.Account')}}</Menu-item>
-          </Menu>
-        </div>
-        <div class="panel">
-          <transition name="fadeInUp">
-            <router-view></router-view>
-          </transition>
-        </div>
+  <div class="setting-main">
+    <div class="flex-container">
+      <div class="left">
+        <p class="section-title">{{$t('m.ChangePassword')}}</p>
+        <Form class="setting-content" ref="formPassword" :model="formPassword" :rules="rulePassword">
+          <FormItem label="Old Password" prop="old_password">
+            <Input v-model="formPassword.old_password" type="password"/>
+          </FormItem>
+          <FormItem label="New Password" prop="new_password">
+            <Input v-model="formPassword.new_password" type="password"/>
+          </FormItem>
+          <FormItem label="Confirm New Password" prop="again_password">
+            <Input v-model="formPassword.again_password" type="password"/>
+          </FormItem>
+          <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
+            <Input v-model="formPassword.tfa_code"/>
+          </FormItem>
+          <FormItem v-if="visible.passwordAlert">
+            <Alert type="success">You will need to login again after 5 seconds..</Alert>
+          </FormItem>
+          <Button type="primary" @click="changePassword">{{$t('m.Update_Password')}}</Button>
+        </Form>
       </div>
-    </Card>
+
+      <div class="middle separator"></div>
+
+      <div class="right">
+        <p class="section-title">{{$t('m.ChangeEmail')}}</p>
+        <Form class="setting-content" ref="formEmail" :model="formEmail" :rules="ruleEmail">
+          <FormItem label="Current Password" prop="password">
+            <Input v-model="formEmail.password" type="password"/>
+          </FormItem>
+          <FormItem label="Old Email">
+            <Input v-model="formEmail.old_email" disabled/>
+          </FormItem>
+          <FormItem label="New Email" prop="new_email">
+            <Input v-model="formEmail.new_email"/>
+          </FormItem>
+          <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
+            <Input v-model="formEmail.tfa_code"/>
+          </FormItem>
+          <Button type="primary" @click="changeEmail">{{$t('m.ChangeEmail')}}</Button>
+        </Form>
+      </div>
+    </div>
   </div>
 </template>
+
 <script>
-  import { mapGetters } from 'vuex'
+  import api from '@oj/api'
+  import { FormMixin } from '@oj/components/mixins'
 
   export default {
-    name: 'profile',
-    methods: {
-      goRoute (routePath) {
-        this.$router.push(routePath)
+    mixins: [FormMixin],
+    data () {
+      const oldPasswordCheck = [{required: true, trigger: 'blur', min: 6, max: 20}]
+      const tfaCheck = [{required: true, trigger: 'change'}]
+      const CheckAgainPassword = (rule, value, callback) => {
+        if (value !== this.formPassword.new_password) {
+          callback(new Error('password does not match'))
+        }
+        callback()
+      }
+      const CheckNewPassword = (rule, value, callback) => {
+        if (this.formPassword.old_password !== '') {
+          if (this.formPassword.old_password === this.formPassword.new_password) {
+            callback(new Error('The new password doesn\'t change'))
+          } else {
+            // 두번째 비밀번호 재인증
+            this.$refs.formPassword.validateField('again_password')
+          }
+        }
+        callback()
+      }
+      return {
+        loading: {
+          btnPassword: false,
+          btnEmail: false
+        },
+        visible: {
+          passwordAlert: false,
+          emailAlert: false,
+          tfaRequired: false
+        },
+        formPassword: {
+          tfa_code: '',
+          old_password: '',
+          new_password: '',
+          again_password: ''
+        },
+        formEmail: {
+          tfa_code: '',
+          password: '',
+          old_email: '',
+          new_email: ''
+        },
+        rulePassword: {
+          old_password: oldPasswordCheck,
+          new_password: [
+            {required: true, trigger: 'blur', min: 6, max: 20},
+            {validator: CheckNewPassword, trigger: 'blur'}
+          ],
+          again_password: [
+            {required: true, validator: CheckAgainPassword, trigger: 'change'}
+          ],
+          tfa_code: tfaCheck
+        },
+        ruleEmail: {
+          password: oldPasswordCheck,
+          new_email: [{required: true, type: 'email', trigger: 'change'}],
+          tfa_code: tfaCheck
+        }
       }
     },
-    computed: {
-      ...mapGetters(['profile']),
-      activeName () {
-        return this.$route.path
+    mounted () {
+      this.formEmail.old_email = this.$store.getters.user.email || ''
+    },
+    methods: {
+      changePassword () {
+        this.validateForm('formPassword').then(valid => {
+          this.loading.btnPassword = true
+          let data = Object.assign({}, this.formPassword)
+          delete data.again_password
+          if (!this.visible.tfaRequired) {
+            delete data.tfa_code
+          }
+          api.changePassword(data).then(res => {
+            this.loading.btnPassword = false
+            this.visible.passwordAlert = true
+            this.$success('Update password successfully')
+            setTimeout(() => {
+              this.visible.passwordAlert = false
+              this.$router.push({name: 'logout'})
+            }, 5000)
+          }, res => {
+            if (res.data.data === 'tfa_required') {
+              this.visible.tfaRequired = true
+            }
+            this.loading.btnPassword = false
+          })
+        })
+      },
+      changeEmail () {
+        this.validateForm('formEmail').then(valid => {
+          this.loading.btnEmail = true
+          let data = Object.assign({}, this.formEmail)
+          if (!this.visible.tfaRequired) {
+            delete data.tfa_code
+          }
+          api.changeEmail(data).then(res => {
+            this.loading.btnEmail = false
+            this.visible.emailAlert = true
+            this.$success('Change email successfully')
+            this.$refs.formEmail.resetFields()
+          }, res => {
+            if (res.data.data === 'tfa_required') {
+              this.visible.tfaRequired = true
+            }
+          })
+        })
       }
     }
   }
 </script>
 
 <style lang="less" scoped>
-  @avatar-radius: 50%;
-
-  .container {
-    width: 90%;
-    min-width: 800px;
-    margin: auto;
-  }
 
   .flex-container {
-    .menu {
-      flex: 1 0 150px;
-      max-width: 250px;
-      .avatar-editor {
-        padding: 10% 22%;
-        margin-bottom: 10px;
-        .avatar-container {
-          &:hover {
-            .avatar-mask {
-              opacity: .5;
-            }
-          }
-          position: relative;
-          .avatar {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            display: block;
-            border-radius: @avatar-radius;
-            box-shadow: 0px 0px 1px 0px;
-          }
-          .avatar-mask {
-            transition: opacity .2s ease-in;
-            z-index: 1;
-            border-radius: @avatar-radius;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: black;
-            opacity: 0;
-            .mask-content {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              z-index: 3;
-              color: #fff;
-              font-size: 16px;
-              text-align: center;
-              transform: translate(-50%, -50%);
-              .text {
-                white-space: nowrap;
-              }
-            }
-          }
-        }
-      }
-
+    justify-content: flex-start;
+    .left {
+      flex: 1 0;
+      width: 250px;
+      padding-right: 5%;
     }
-
-    .panel {
-      flex: auto;
-      &::before {
-        content: '';
-        display: block;
-        width: 1px;
-        height: 100%;
-        background: #dddee1;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        z-index: 1;
-      }
+    > .middle {
+      flex: none;
     }
-
-  }
-
-  .ivu-menu-vertical.ivu-menu-light:after {
-    /*묵인취소위조*/
-    width: 0;
-  }
-</style>
-
-<style lang="less">
-  .setting-main {
-    position: relative;
-    margin: 10px 40px;
-    padding-bottom: 20px;
-    .setting-content {
-      margin-left: 20px;
-    }
-    .mini-container {
-      width: 500px;
+    .right {
+      flex: 1 0;
+      width: 250px;
     }
   }
 </style>
+
