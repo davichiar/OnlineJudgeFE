@@ -14,18 +14,10 @@
         <Icon type="ios-pulse-strong"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
-      <Submenu name="about">
-        <template slot="title">
-          <Icon type="information-circled"></Icon>
-          {{$t('m.About')}}
-        </template>
-        <Menu-item name="/about">
+      <Menu-item name="/about">
+        <Icon type="information-circled"></Icon>
           {{$t('m.Judger')}}
-        </Menu-item>
-        <Menu-item name="/FAQ">
-          {{$t('m.FAQ')}}
-        </Menu-item>
-      </Submenu>
+      </Menu-item>
       <template v-if="!isAuthenticated">
         <div class="btn-menu">
           <Button type="ghost"
