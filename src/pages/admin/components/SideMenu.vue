@@ -2,7 +2,7 @@
   <el-menu class="vertical_menu"
            :router="true" :default-active="currentPath">
     <div class="logo">
-      <img src="../../../static/profile.png" alt="oj admin"/>
+      <img src="../../static/profile.png" alt="oj admin"/>
     </div>
     <el-menu-item index="/"><i class="el-icon-fa-dashboard"></i>{{$t('m.Dashboard')}}</el-menu-item>
     <el-menu-item index="/user"><i class="el-icon-menu"></i>{{$t('m.User')}}</el-menu-item>
