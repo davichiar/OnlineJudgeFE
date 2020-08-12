@@ -4,7 +4,7 @@
     <div class="logo">
       <img :src="`../static/profile.png`" alt="oj admin"/>
     </div>
-    <el-menu-item index="/"><i class="el-icon-menu"></i>{{$t('m.User')}}</el-menu-item>
+    <el-menu-item index="/"><i class="el-icon-menu"></i>{{$t('m.User')}} 관리</el-menu-item>
     <el-submenu index="problem" v-if="hasProblemPermission">
       <template slot="title"><i class="el-icon-fa-bars"></i>{{$t('m.Problem')}}</template>
       <el-menu-item index="/problems">{{$t('m.Problem_List')}}</el-menu-item>
