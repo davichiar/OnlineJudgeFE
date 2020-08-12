@@ -23,33 +23,31 @@
         style="width: 100%">
         <el-table-column type="selection" width="55"></el-table-column>
 
-        <el-table-column prop="id" label="ID"></el-table-column>
+        <el-table-column prop="id" label="아이디"></el-table-column>
 
-        <el-table-column prop="username" label="Username"></el-table-column>
+        <el-table-column prop="username" label="이름"></el-table-column>
 
-        <el-table-column prop="create_time" label="Create Time">
+        <el-table-column prop="create_time" label="생성 날짜">
           <template slot-scope="scope">
             {{scope.row.create_time | localtime }}
           </template>
         </el-table-column>
 
-        <el-table-column prop="last_login" label="Last Login">
+        <el-table-column prop="last_login" label="지난 로그인">
           <template slot-scope="scope">
             {{scope.row.last_login | localtime }}
           </template>
         </el-table-column>
 
-        <el-table-column prop="real_name" label="Real Name"></el-table-column>
+        <el-table-column prop="email" label="이메일"></el-table-column>
 
-        <el-table-column prop="email" label="Email"></el-table-column>
-
-        <el-table-column prop="admin_type" label="User Type">
+        <el-table-column prop="admin_type" label="유저 유형">
           <template slot-scope="scope">
             {{ scope.row.admin_type }}
           </template>
         </el-table-column>
 
-        <el-table-column fixed="right" label="Option" width="200">
+        <el-table-column fixed="right" label="옵션" width="200">
           <template slot-scope="{row}">
             <icon-btn name="Edit" icon="edit" @click.native="openUserDialog(row.id)"></icon-btn>
             <icon-btn name="Delete" icon="trash" @click.native="deleteUsers([row.id])"></icon-btn>
@@ -67,106 +65,80 @@
       </div>
     </Panel>
 
-    <Panel>
-      <span slot="title">{{$t('m.Import_User')}}
-        <el-popover placement="right" trigger="hover">
-          <p>Only support csv file without headers, check the <a
-            href="http://docs.onlinejudge.me/#/onlinejudge/guide/import_users">link</a> for details</p>
-          <i slot="reference" class="el-icon-fa-question-circle import-user-icon"></i>
-        </el-popover>
-      </span>
-      <el-upload v-if="!uploadUsers.length"
-                 action=""
-                 :show-file-list="false"
-                 accept=".csv"
-                 :before-upload="handleUsersCSV">
-        <el-button size="small" icon="el-icon-fa-upload" type="primary">Choose File</el-button>
-      </el-upload>
-      <template v-else>
-        <el-table :data="uploadUsersPage">
-          <el-table-column label="Username">
-            <template slot-scope="{row}">
-              {{row[0]}}
-            </template>
-          </el-table-column>
-          <el-table-column label="Password">
-            <template slot-scope="{row}">
-              {{row[1]}}
-            </template>
-          </el-table-column>
-          <el-table-column label="Email">
-            <template slot-scope="{row}">
-              {{row[2]}}
-            </template>
-          </el-table-column>
-        </el-table>
-        <div class="panel-options">
-          <el-button type="primary" size="small"
-                     icon="el-icon-fa-upload"
-                     @click="handleUsersUpload">Import All
-          </el-button>
-          <el-button type="warning" size="small"
-                     icon="el-icon-fa-undo"
-                     @click="handleResetData">Reset Data
-          </el-button>
-          <el-pagination
-            class="page"
-            layout="prev, pager, next"
-            :page-size="uploadUsersPageSize"
-            :current-page.sync="uploadUsersCurrentPage"
-            :total="uploadUsers.length">
-          </el-pagination>
-        </div>
-      </template>
-    </Panel>
-
-    <Panel :title="$t('m.Generate_User')">
-      <el-form :model="formGenerateUser" ref="formGenerateUser">
-        <el-row type="flex" justify="space-between">
-          <el-col :span="4">
-            <el-form-item label="Prefix" prop="prefix">
-              <el-input v-model="formGenerateUser.prefix" placeholder="Prefix"></el-input>
+    <el-dialog :title="$t('m.User_Info')" :visible.sync="showUserDialog" :close-on-click-modal="false">
+      <el-form :model="user" label-width="120px" label-position="left">
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_Username')" required>
+              <el-input v-model="user.username"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
-            <el-form-item label="Suffix" prop="suffix">
-              <el-input v-model="formGenerateUser.suffix" placeholder="Suffix"></el-input>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_Real_Name')" required>
+              <el-input v-model="user.real_name"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
-            <el-form-item label="Start Number" prop="number_from" required>
-              <el-input-number v-model="formGenerateUser.number_from" style="width: 100%"></el-input-number>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_Email')" required>
+              <el-input v-model="user.email"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
-            <el-form-item label="End Number" prop="number_to" required>
-              <el-input-number v-model="formGenerateUser.number_to" style="width: 100%"></el-input-number>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_New_Password')">
+              <el-input v-model="user.password"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
-            <el-form-item label="Password Length" prop="password_length" required>
-              <el-input v-model="formGenerateUser.password_length"
-                        placeholder="Password Length"></el-input>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.User_Type')">
+              <el-select v-model="user.admin_type">
+                <el-option label="Regular User" value="Regular User"></el-option>
+                <el-option label="Admin" value="Admin"></el-option>
+                <el-option label="Super Admin" value="Super Admin"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :label="$t('m.Problem_Permission')">
+              <el-select v-model="user.problem_permission" :disabled="user.admin_type!=='Admin'">
+                <el-option label="None" value="None"></el-option>
+                <el-option label="Own" value="Own"></el-option>
+                <el-option label="All" value="All"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item :label="$t('m.Two_Factor_Auth')">
+              <el-switch
+                v-model="user.two_factor_auth"
+                :disabled="!user.real_tfa"
+                active-color="#13ce66"
+                inactive-color="#ff4949">
+              </el-switch>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="Open Api">
+              <el-switch
+                v-model="user.open_api"
+                active-color="#13ce66"
+                inactive-color="#ff4949">
+              </el-switch>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item :label="$t('m.Is_Disabled')">
+              <el-switch
+                v-model="user.is_disabled">
+              </el-switch>
             </el-form-item>
           </el-col>
         </el-row>
-
-        <el-form-item>
-          <el-button type="primary" @click="generateUser" icon="el-icon-fa-users" :loading="loadingGenerate">Generate & Export
-          </el-button>
-          <span class="userPreview" v-if="formGenerateUser.number_from && formGenerateUser.number_to &&
-                                          formGenerateUser.number_from <= formGenerateUser.number_to">
-            The usernames will be {{formGenerateUser.prefix + formGenerateUser.number_from + formGenerateUser.suffix}},
-            <span v-if="formGenerateUser.number_from + 1 < formGenerateUser.number_to">
-              {{formGenerateUser.prefix + (formGenerateUser.number_from + 1) + formGenerateUser.suffix + '...'}}
-            </span>
-            <span v-if="formGenerateUser.number_from + 1 <= formGenerateUser.number_to">
-              {{formGenerateUser.prefix + formGenerateUser.number_to + formGenerateUser.suffix}}
-            </span>
-          </span>
-        </el-form-item>
       </el-form>
-    </Panel>
+      <span slot="footer" class="dialog-footer">
+        <cancel @click.native="showUserDialog = false">Cancel</cancel>
+        <save @click.native="saveUser()"></save>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
