@@ -5,14 +5,7 @@
       <img src="../../../assets/logo.svg" alt="oj admin"/>
     </div>
     <el-menu-item index="/"><i class="el-icon-fa-dashboard"></i>{{$t('m.Dashboard')}}</el-menu-item>
-    <el-submenu v-if="isSuperAdmin" index="general">
-      <template slot="title"><i class="el-icon-menu"></i>{{$t('m.General')}}</template>
-      <el-menu-item index="/user">{{$t('m.User')}}</el-menu-item>
-      <el-menu-item index="/announcement">{{$t('m.Announcement')}}</el-menu-item>
-      <el-menu-item index="/conf">{{$t('m.System_Config')}}</el-menu-item>
-      <el-menu-item index="/judge-server">{{$t('m.Judge_Server')}}</el-menu-item>
-      <el-menu-item index="/prune-test-case">{{$t('m.Prune_Test_Case')}}</el-menu-item>
-    </el-submenu>
+    <el-menu-item index="/user"><i class="el-icon-menu"></i>{{$t('m.User')}}</el-menu-item>
     <el-submenu index="problem" v-if="hasProblemPermission">
       <template slot="title"><i class="el-icon-fa-bars"></i>{{$t('m.Problem')}}</template>
       <el-menu-item index="/problems">{{$t('m.Problem_List')}}</el-menu-item>
